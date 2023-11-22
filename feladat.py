@@ -1,3 +1,5 @@
+import json
+
 termek = ["Sertéskaraj", "Gouda sajt", "Dobozos sajt", "Csirkemell filé", "Mirelit Pizza", "Vaj", "Edámi sajt", "Szőlő", "Paradicsom", "Szalámi", "Rizs", "Banán", "Zöldségmix", "Cola", "Hagyma", "Kenyér", "Narancs", "Alma", "Napraforgóolaj", "Spaghetti tészta", "Teljes tej", "Joghurt", "Almalé", "Burgonya", "Babkonzerv", "Cukor", "WC-papír", "Búzaliszt", "Friss tojás"]
 egyseg = ["kg", "450 g", "400 g", "kg", "db", "250 g", "200 g", "1 kg", "1 kg", "100 g", "1 kg", "1 kg", "1 kg", "2l", "1 kg", "1 kg", "1 kg", "1 kg", "1 l", "500 g", "1 l", "500 ml", "1 l", "1 kg", "240 g", "1 kg", "tekercs", "1 kg", "db"]
 
@@ -40,3 +42,16 @@ print(valtozas)
 # ▪ importálja a json modult!
 # ▪ készítsen az adatokból szótárat
 # ▪ mentse fájlba data.json néven!
+
+adatok = []
+for index in range(len(termek)):
+    adat = {}
+    adat["termek"] = termek[index]
+    adat["egyseg"] = egyseg[index]
+    adat["december"] = december[index]
+    adat["november"] = november[index]
+    adat["valtozas"] = valtozas[index]
+    adatok.append(adat)
+
+with open("data.json", "w", encoding="utf8") as fájl:
+    fájl.write(json.dumps(adatok, indent=4))
