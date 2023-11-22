@@ -28,6 +28,13 @@ else:
 #     ▪ Füzze az eredményt a 'változás' lista végéhez!
 # ▪ A ciklus után írja képernyőre a kiszámolt adatokat!
 
+valtozas = []
+index = 0
+for index in range(len(december)):
+    szazalek = (december[index] / november[index] - 1) * 100
+    szazalek = round(szazalek, 2)
+    valtozas.append(szazalek)
+print(valtozas)
 
 # 3. feladat
 # ▪ importálja a json modult!
